@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { Compass, ArrowRight, AlertCircle } from "lucide-react";
+import { Compass, ArrowRight, AlertCircle, LockKeyhole } from "lucide-react";
 import { useAuth } from "../context/AuthContext";
 import AuthLayout from "../components/AuthLayout";
 
@@ -31,13 +31,14 @@ export default function Login() {
 
   return (
     <AuthLayout
-      eyebrow="Welcome back"
-      title="Sign in to McKinsey & Company"
-      subtitle="Access your research briefs, evidence trails, and strategy reports."
+      dark
+      eyebrow="Secure workspace access"
+      title="Return to the work that moves decisions forward."
+      subtitle="Sign in to continue building evidence-backed market intelligence with your research workspace."
     >
       <form onSubmit={handleSubmit} className="space-y-4">
         <div>
-          <label className="mb-1.5 block text-xs font-medium uppercase tracking-wide text-[#666666]">
+          <label className="mb-1.5 block text-xs font-medium uppercase tracking-wide text-[#a8afac]">
             Email
           </label>
           <input
@@ -47,11 +48,11 @@ export default function Login() {
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             placeholder="you@company.com"
-            className="w-full rounded-md font-medium border border-[#d9d7d0] bg-white px-3.5 py-2.5 text-sm text-[#040404] outline-none transition placeholder:text-[#999999] focus:border-[#171717] focus:ring-2 focus:ring-[#171717]/5"
+            className="w-full rounded-md border border-[#34403b] bg-[#1b211f] px-3.5 py-2.5 text-sm font-medium text-[#f2f4f3] outline-none transition placeholder:text-[#747c78] focus:border-[#d6a15c] focus:ring-2 focus:ring-[#d6a15c]/20"
           />
         </div>
         <div>
-          <label className="mb-1.5 block text-xs font-medium uppercase tracking-wide text-[#666666]">
+          <label className="mb-1.5 block text-xs font-medium uppercase tracking-wide text-[#a8afac]">
             Password
           </label>
           <input
@@ -61,7 +62,7 @@ export default function Login() {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             placeholder="••••••••"
-            className="w-full rounded-md border border-gray-500 bg-white px-3.5 py-2.5 text-sm text-black outline-none transition placeholder:text-[#858484] focus:border-navy focus:ring-2 focus:ring-navy/10"
+            className="w-full rounded-md border border-[#34403b] bg-[#1b211f] px-3.5 py-2.5 text-sm text-[#f2f4f3] outline-none transition placeholder:text-[#747c78] focus:border-[#d6a15c] focus:ring-2 focus:ring-[#d6a15c]/20"
           />
         </div>
 
@@ -75,7 +76,7 @@ export default function Login() {
         <button
           type="submit"
           disabled={submitting}
-          className="group flex w-full items-center justify-center gap-2 rounded-md bg-[#171717] px-4 py-3 text-sm font-medium text-white transition hover:bg-[#303030] disabled:cursor-not-allowed disabled:opacity-60 cursor-pointer"
+          className="group flex w-full items-center justify-center gap-2 rounded-md bg-[#d6a15c] px-4 py-3 text-sm font-semibold text-[#111312] transition hover:bg-[#e0b77d] disabled:cursor-not-allowed disabled:opacity-60 cursor-pointer"
         >
           {submitting ? "Signing in…" : "Sign in"}
           {!submitting && (
@@ -84,9 +85,13 @@ export default function Login() {
         </button>
       </form>
 
-      <p className="mt-6 text-center text-sm text-ink-muted">
+      <div className="mt-6 flex items-center justify-center gap-2 text-xs text-[#747c78]">
+        <LockKeyhole size={13} />
+        <span>Private workspace · Evidence stays attributable</span>
+      </div>
+      <p className="mt-5 text-center text-sm text-[#a8afac]">
         Don&apos;t have an account?{" "}
-        <Link to="/signup" className="font-medium text-[#171717] underline decoration-[#b65a16] decoration-2 underline-offset-2 transition hover:text-[#b65a16]">
+        <Link to="/signup" className="font-medium text-[#d6a15c] underline decoration-[#d6a15c] decoration-2 underline-offset-2 transition hover:text-[#e0b77d]">
           Create one
         </Link>
       </p>
